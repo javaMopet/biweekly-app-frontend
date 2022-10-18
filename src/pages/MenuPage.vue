@@ -1,17 +1,33 @@
 <template>
   <div class="menu__container">
-    <div class="menu__item">
-      <a href="#" class="menu__item--btn">Tienda</a>
-    </div>
-    <div class="menu__item">
-      <a href="#" class="menu__item--btn">Libreria</a>
-    </div>
+    <menu-item
+      v-for="menu in menuOptions"
+      :key="menu.id"
+      :menu="menu"
+    ></menu-item>
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
+import MenuItem from '../components/MenuItem.vue';
 
-const mivar = ref(1);
+const menuOptions = ref([
+  {
+    id: 1,
+    nombre: 'Tienda Universitaria',
+    icon: 'book'
+  },
+  {
+    id: 2,
+    nombre: 'Libreria Universitaria',
+    icon: 'lock'
+  },
+  {
+    id: 3,
+    nombre: 'Tienda de lety',
+    icon: 'account_balance'
+  }
+]);
 </script>
-<style src="../css/pages/menuPage.scss" />
+
+<style scoped lang="scss" src="../css/pages/menuPage.scss" />
